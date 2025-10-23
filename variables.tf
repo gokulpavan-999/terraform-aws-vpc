@@ -30,20 +30,20 @@ variable "public_subnet_tags" {
   default = {}
 }
 
-variable "public_subnet_cidr" {
+variable "private_subnet_cidr" {
   type = list
 }
 
-variable "public_subnet_tags" {
+variable "private_subnet_tags" {
   type = map
   default = {}
 }
 
-variable "public_subnet_cidr" {
+variable "database_subnet_cidr" {
   type = list
 }
 
-variable "public_subnet_tags" {
+variable "database_subnet_tags" {
   type = map
   default = {}
 }
