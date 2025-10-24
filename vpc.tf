@@ -96,19 +96,20 @@ resource "aws_route_table" "private" {
     var.private_route_table_tags,
     local.common_tags,
     {
-      Name = "${local.common_name_suffix}Public  }
+      Name = "${local.common_name_suffix}-private" 
+    }
   )
 }
 
-# PubicRouteTable 
-resource "aws_route_table" "public" {
+# Database Route Table 
+resource "aws_route_table" "database" {
   vpc_id = aws_vpc.main.id
 
   tags = merge(
-    var.public_route_table_tags,
+    var.database_route_table_tags,
     local.common_tags,
     {
-      Name = "${local.common_name_suffix}-public"
+      Name = "${local.common_name_suffix}-database"
     }
   )
 }
