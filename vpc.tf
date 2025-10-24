@@ -75,4 +75,40 @@ resource "aws_subnet" "database" {
   )
 }
 
+# Public Route Table 
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
 
+  tags = merge(
+    var.public_route_table_tags,
+    local.common_tags,
+    {
+      Name = "${local.common_name_suffix}-public"
+    }
+  )
+}
+
+# Private Route Table 
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.private_route_table_tags,
+    local.common_tags,
+    {
+      Name = "${local.common_name_suffix}Public  }
+  )
+}
+
+# PubicRouteTable 
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.public_route_table_tags,
+    local.common_tags,
+    {
+      Name = "${local.common_name_suffix}-public"
+    }
+  )
+}
